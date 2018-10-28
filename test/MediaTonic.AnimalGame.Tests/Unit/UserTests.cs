@@ -54,15 +54,6 @@ namespace MediaTonic.AnimalGame.Tests.Unit
             Assert.Equal(user, user2);
         }
 
-        [Fact, TestPriority(5)]
-        public void Create_User_AddAnimalTwice_ThrowsException()
-        {
-            var user = User.CreateUser("Michael Cheese", "MC18938344");
-            Assert.IsType<User>(user);
 
-            var animal = Animal.CreateAnimal(API.Enums.AnimalType.Dog, "Duffy", user);
-
-            Assert.IsType<Animal>(animal);
-        }
     }
 }

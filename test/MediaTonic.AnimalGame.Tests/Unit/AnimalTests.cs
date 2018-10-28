@@ -1,4 +1,6 @@
 ﻿using MediaTonic.AnimalGame.API.Models;
+using MediaTonic.AnimalGame.Tests.Attributes;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
@@ -123,6 +125,22 @@ namespace MediaTonic.AnimalGame.Tests.Unit
             System.Threading.Thread.Sleep(65000);
 
             Assert.True(animal.CurrentHungriness() > 50);
+        }
+
+
+        [Fact, TestPriority(10)]
+        public void Create_Animal_NullUser_Returns_Exception()
+        {
+            Assert.Throws<ArgumentNullException>(() => Animal.CreateAnimal(API.Enums.AnimalType.Dog, "Duffy", null));
+        }
+
+        [Fact, TestPriority(10)]
+        public void Create_Animal_EmptyUserName_Returns_Exception()
+        {
+            var user = User.CreateUser("Michael Cheese", "MC18938344");
+            Assert.IsType<User>(user);
+
+            Assert.Throws<ArgumentException>(() => Animal.CreateAnimal(API.Enums.AnimalType.Dog, string.Empty, user));
         }
     }
 }

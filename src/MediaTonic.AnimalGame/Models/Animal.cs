@@ -9,7 +9,7 @@ namespace MediaTonic.AnimalGame.API.Models
 {
     public class Animal
     {
-        internal Animal(AnimalType type, string name, User user, int petRate = 5, int hungryRate = 5)
+        Animal(AnimalType type, string name, User user, int petRate = 5, int hungryRate = 5)
         {
             Guard.Against.Null(type, nameof(type));
             Guard.Against.NullOrEmpty(name, nameof(type));

@@ -9,7 +9,7 @@ namespace MediaTonic.AnimalGame.API.Models
 {
     public class User
     {
-        internal User(string name, string userName)
+        User(string name, string userName)
         {
             Guard.Against.NullOrEmpty(name, nameof(name));
             Guard.Against.NullOrEmpty(userName, nameof(userName));
